@@ -8,13 +8,13 @@
         <version>3.1.0</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>ar.edu.utn.frc.tup.lciii</groupId>
-    <artifactId>lciii-scaffolding</artifactId>
+    <groupId>SpringBootFakeAPI</groupId>
+    <artifactId>SpringBootFakeAPI</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>lciii-scaffolding</name>
-    <description>LCII Initial Scaffolding</description>
+    <name>SpringBootFakeAPI</name>
+    <description>SpringBootFakeAPI is a backend API developed to showcase proficiency in backend development</description>
     <properties>
-        <java.version>17</java.version>
+        <java.version>20</java.version>
     </properties>
 
     <dependencies>
