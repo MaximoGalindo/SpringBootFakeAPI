@@ -1,0 +1,9 @@
+services:
+  - name: springbootfakeapiservice
+    envVars:
+      - key: KEY1
+        value: valor1
+      - key: KEY2
+        value: valor2
+    buildCommand: docker build -t springbootfakeapi .
+    startCommand: docker run -p 45896:8080 springbootfakeapi
