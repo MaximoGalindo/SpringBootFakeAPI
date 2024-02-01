@@ -1,5 +1,3 @@
-FROM openjdk:11
-WORKDIR /app
-COPY . /app/
-EXPOSE 8080
-CMD ["java", "-jar", "your-app.jar"]
+FROM openjdk:20
+COPY target/SpringBootFakeAPI-0.0.1-SNAPSHOT.jar /app.jar
+ENTRYPOINT ["java","-jar", "/app.jar"]
