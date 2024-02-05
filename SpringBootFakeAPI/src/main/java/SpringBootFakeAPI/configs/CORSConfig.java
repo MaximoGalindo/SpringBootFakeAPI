@@ -15,7 +15,11 @@ public class CORSConfig {
         config.addAllowedOrigin("https://springbootfakeapi.onrender.com");
         config.addAllowedOrigin("http://localhost:8080");
         config.addAllowedOrigin("http://localhost:4200");
-        config.addAllowedHeader("*");
+        config.addAllowedHeader("Origin");
+        config.addAllowedHeader("X-Requested-With");
+        config.addAllowedHeader("Content-Type");
+        config.addAllowedHeader("Accept");
+        config.addAllowedHeader("Authorization");
         config.addAllowedMethod("GET");
         config.addAllowedMethod("POST");
         config.addAllowedMethod("PUT");
