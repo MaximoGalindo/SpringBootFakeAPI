@@ -1,5 +1,4 @@
 package SpringBootFakeAPI.controllers;
-
 import SpringBootFakeAPI.dtos.response.GetUserDTO;
 import SpringBootFakeAPI.dtos.response.PostUserDTO;
 import SpringBootFakeAPI.models.User;
