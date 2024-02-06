@@ -13,7 +13,6 @@ import java.util.Objects;
 
 @RestController("UserController")
 @RequestMapping("/users")
-@CrossOrigin(origins = {"https://springbootfakeapi.onrender.com", "http://localhost:4200"})
 public class UserController {
 
     @Autowired
