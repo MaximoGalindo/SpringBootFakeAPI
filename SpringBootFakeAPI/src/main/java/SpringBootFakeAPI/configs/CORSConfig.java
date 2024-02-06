@@ -11,18 +11,13 @@ public class CORSConfig {
     public CorsFilter corsFilter() {
         UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
         CorsConfiguration config = new CorsConfiguration();
-        config.setAllowCredentials(true);
-        config.addAllowedOrigin("https://springbootfakeapi.onrender.com");
-        config.addAllowedOrigin("http://localhost:4200");
-        config.addAllowedHeader("Origin");
-        config.addAllowedHeader("X-Requested-With");
-        config.addAllowedHeader("Content-Type");
-        config.addAllowedHeader("Accept");
-        config.addAllowedHeader("Authorization");
+        config.addAllowedHeader("*");
+        config.addAllowedOrigin("*");
         config.addAllowedMethod("GET");
         config.addAllowedMethod("POST");
         config.addAllowedMethod("PUT");
         config.addAllowedMethod("DELETE");
+        config.setAllowCredentials(true);
         source.registerCorsConfiguration("/**", config);
         return new CorsFilter(source);
     }
