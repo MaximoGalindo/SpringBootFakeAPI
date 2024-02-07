@@ -19,7 +19,7 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @CrossOrigin(origins = {"http://localhost:42008", "https://springbootfakeapi.onrender.com/"})
+    @CrossOrigin(origins = {"http://localhost:4200", "https://springbootfakeapi.onrender.com/"})
     @GetMapping("/getUser")
     public ResponseEntity<GetUserDTO> getUser(@RequestParam String emailOrUserName,
                                               @RequestParam String password,
