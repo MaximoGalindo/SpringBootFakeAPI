@@ -24,8 +24,9 @@ public class UserController {
     public ResponseEntity<GetUserDTO> getUser(@RequestParam String emailOrUserName,
                                               @RequestParam String password,
                                               HttpServletResponse response){
-        
+
         response.setHeader("Access-Control-Allow-Origin", "http://localhost:4200");
+        response.setHeader("Access-Control-Allow-Credentials", "true");
         User user = userService.getUserByUserNameOrEmailAndPassword(emailOrUserName,password);
         GetUserDTO userResponseDTO = new GetUserDTO(user.getUserName(),user.getLastLoginDate());
         return ResponseEntity.ok(userResponseDTO);
