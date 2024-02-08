@@ -1,4 +1,5 @@
 SpringBootFakeAPI\utils\validatios\password\ValidPassword.class
+SpringBootFakeAPI\configs\WebConfig.class
 SpringBootFakeAPI\dtos\common\ErrorApi.class
 SpringBootFakeAPI\services\UserService.class
 SpringBootFakeAPI\controllers\UserController.class
