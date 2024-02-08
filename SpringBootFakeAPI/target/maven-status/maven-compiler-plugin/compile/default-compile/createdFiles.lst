@@ -1,7 +1,7 @@
 SpringBootFakeAPI\utils\validatios\password\ValidPassword.class
-SpringBootFakeAPI\configs\WebConfig.class
 SpringBootFakeAPI\dtos\common\ErrorApi.class
 SpringBootFakeAPI\services\UserService.class
+SpringBootFakeAPI\Application$1.class
 SpringBootFakeAPI\controllers\UserController.class
 SpringBootFakeAPI\utils\validatios\password\PasswordConstraintValidator.class
 SpringBootFakeAPI\configs\MappersConfig.class

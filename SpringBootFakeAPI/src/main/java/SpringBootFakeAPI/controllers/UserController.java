@@ -13,13 +13,14 @@ import org.springframework.web.server.ResponseStatusException;
 import java.util.Objects;
 
 @RestController("UserController")
+@CrossOrigin
 @RequestMapping("/users")
 public class UserController {
 
     @Autowired
     private UserService userService;
 
-    @CrossOrigin(origins = "*")
+
     @GetMapping("/getUser")
     public ResponseEntity<GetUserDTO> getUser(@RequestParam String emailOrUserName,
                                               @RequestParam String password,
