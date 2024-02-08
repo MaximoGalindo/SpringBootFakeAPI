@@ -13,8 +13,11 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class GetUserDTO {
 
-    @NotNull(message = "userName can't by null")
-    private String userName;
+
+    private Long id;
+    private String username;
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy hh:mm:ss")
-    private LocalDateTime lastLoginDate;
+    private LocalDateTime lastlogindate;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy hh:mm:ss")
+    private LocalDateTime lastuserupdated;
 }

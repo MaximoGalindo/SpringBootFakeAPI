@@ -1,4 +1,4 @@
-package SpringBootFakeAPI.dtos.response;
+package SpringBootFakeAPI.dtos.request;
 
 import SpringBootFakeAPI.utils.validatios.password.ValidPassword;
 import jakarta.validation.constraints.Email;

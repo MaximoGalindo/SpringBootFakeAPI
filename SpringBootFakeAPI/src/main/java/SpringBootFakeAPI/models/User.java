@@ -24,7 +24,8 @@ public class User {
     @NotNull(message = "Email can't by null")
     @Email(message = "The email need to be valid email")
     private String email;
-
     @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy hh:mm:ss")
     private LocalDateTime lastLoginDate;
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy hh:mm:ss")
+    private LocalDateTime updateAt;
 }

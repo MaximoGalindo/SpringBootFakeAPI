@@ -1,6 +1,8 @@
 package SpringBootFakeAPI.services.impl;
 
-import SpringBootFakeAPI.dtos.response.PostUserDTO;
+import SpringBootFakeAPI.dtos.request.PostUserDTO;
+import SpringBootFakeAPI.dtos.request.UpdateUserDTO;
+import SpringBootFakeAPI.dtos.response.DeleteDTO;
 import SpringBootFakeAPI.entities.UserEntity;
 import SpringBootFakeAPI.models.User;
 import SpringBootFakeAPI.repositories.UserJpaRepository;
@@ -11,7 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
+import java.util.Objects;
 import java.util.Optional;
 
 @Service
@@ -22,10 +24,6 @@ public class UserServiceImpl implements UserService {
 
     @Autowired
     private ModelMapper modelMapper;
-
-    public User getUserId(User user) {
-        return null;
-    }
 
     @Override
     public User saveUser(PostUserDTO user) {
@@ -47,13 +45,31 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User updateUser(long id, User user) {
-        return null;
+    public User updateUser(Long id, UpdateUserDTO updatedUser) {
+        Optional<UserEntity> userEntityOptional = userJpaRepository.findById(id);
+        if(userEntityOptional.isPresent()){
+            UserEntity userEntity = userEntityOptional.get();
+            userEntity.setUserName(updatedUser.getUserName());
+            userEntity.setPassword(updatedUser.getPassword());
+            userEntity.setUpdateAt(LocalDateTime.now());
+            userEntity = userJpaRepository.save(userEntity);
+            User user =  modelMapper.map(userEntity,User.class);
+            return user;
+        }
+        else{
+            throw new EntityNotFoundException("This user ID doesn't exist");
+        }
     }
 
     @Override
-    public User deleteUser(long id) {
-        return null;
+    public DeleteDTO deleteUser(Long id) {
+        UserEntity userEntity = userJpaRepository.getReferenceById(id);
+        if(Objects.isNull(userEntity))
+            return new DeleteDTO(false, "This user ID doesn't exist");
+        else {
+            userJpaRepository.delete(userEntity);
+            return new DeleteDTO(true,"The user has been deleted successfully");
+        }
     }
 
     @Override
@@ -64,6 +80,18 @@ public class UserServiceImpl implements UserService {
     @Override
     public User getUserByEmailAndPassword(String email, String password) {
         return null;
+    }
+
+    @Override
+    public User getUserById(Long id) {
+        Optional<UserEntity> userEntityOptional = userJpaRepository.findById(id);
+        if(userEntityOptional.isPresent()){
+            userEntityOptional.get().setLastlogin(LocalDateTime.now());
+            return modelMapper.map(userEntityOptional.get(), User.class);
+        }
+        else{
+            throw new EntityNotFoundException("This user ID doesn't exist");
+        }
     }
 
     @Override
