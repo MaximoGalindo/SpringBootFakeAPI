@@ -19,7 +19,7 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-
+    @CrossOrigin(origins = "*")
     @GetMapping("/getUser")
     public ResponseEntity<GetUserDTO> getUser(@RequestParam String emailOrUserName,
                                               @RequestParam String password,
