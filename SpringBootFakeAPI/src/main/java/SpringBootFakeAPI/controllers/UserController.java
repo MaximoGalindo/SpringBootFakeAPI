@@ -13,21 +13,16 @@ import org.springframework.web.server.ResponseStatusException;
 import java.util.Objects;
 
 @RestController("UserController")
-@CrossOrigin
+
 @RequestMapping("/users")
 public class UserController {
 
     @Autowired
     private UserService userService;
 
-
     @GetMapping("/getUser")
     public ResponseEntity<GetUserDTO> getUser(@RequestParam String emailOrUserName,
-                                              @RequestParam String password,
-                                              HttpServletResponse response){
-        response.setHeader("Access-Control-Allow-Origin", "*");
-        response.setHeader("Access-Control-Allow-Methods", "GET, PUT, POST, DELETE, OPTIONS");
-        response.setHeader("Access-Control-Allow-Headers", "DNT,X-CustomHeader,Keep-Alive,User-Agent,X-Requested-With,If-Modified-Since,Cache-Control,Content-Type,Content-Range,Range");
+                                              @RequestParam String password){
         User user = userService.getUserByUserNameOrEmailAndPassword(emailOrUserName,password);
         GetUserDTO userResponseDTO = new GetUserDTO(user.getUserName(),user.getLastLoginDate());
         return ResponseEntity.ok(userResponseDTO);
