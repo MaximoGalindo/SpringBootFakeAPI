@@ -3,6 +3,7 @@ import SpringBootFakeAPI.dtos.request.UpdateUserDTO;
 import SpringBootFakeAPI.dtos.response.DeleteDTO;
 import SpringBootFakeAPI.dtos.response.GetUserDTO;
 import SpringBootFakeAPI.dtos.request.PostUserDTO;
+import SpringBootFakeAPI.dtos.response.UpdateDTO;
 import SpringBootFakeAPI.models.User;
 import SpringBootFakeAPI.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,14 +26,15 @@ public class UserController {
     public ResponseEntity<GetUserDTO> getUser(@PathVariable String emailorusername,
                                               @PathVariable String password){
         User user = userService.getUserByUserNameOrEmailAndPassword(emailorusername,password);
-        GetUserDTO userResponseDTO = new GetUserDTO(user.getId(),user.getUserName(),user.getLastLoginDate(),user.getUpdateAt());
+        GetUserDTO userResponseDTO =
+                new GetUserDTO(user.getId(),user.getUserName(),user.getActive(),user.getLastLoginDate(),user.getUpdateAt());
         return ResponseEntity.ok(userResponseDTO);
     }
 
     @GetMapping("{id}")
     public ResponseEntity<GetUserDTO> getUser(@PathVariable Long id){
         User user = userService.getUserById(id);
-        GetUserDTO userResponseDTO = new GetUserDTO(user.getId(),user.getUserName(),user.getLastLoginDate(),user.getUpdateAt());
+        GetUserDTO userResponseDTO = new GetUserDTO(user.getId(),user.getUserName(),user.getActive(),user.getLastLoginDate(),user.getUpdateAt());
         return ResponseEntity.ok(userResponseDTO);
     }
 
@@ -42,7 +44,7 @@ public class UserController {
         if(Objects.isNull(user))
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Username or Email already exists");
         else{
-            GetUserDTO newUser = new GetUserDTO(user.getId(),user.getUserName(),user.getLastLoginDate(),user.getUpdateAt());
+            GetUserDTO newUser = new GetUserDTO(user.getId(),user.getUserName(),user.getActive(),user.getLastLoginDate(),user.getUpdateAt());
             return ResponseEntity.ok(newUser);
         }
     }
@@ -54,11 +56,16 @@ public class UserController {
         if(Objects.isNull(user))
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "This user ID doesn't exist");
         else{
-            GetUserDTO newUser = new GetUserDTO(user.getId(),user.getUserName(),user.getLastLoginDate(),user.getUpdateAt());
+            GetUserDTO newUser = new GetUserDTO(user.getId(),user.getUserName(),user.getActive(),user.getLastLoginDate(),user.getUpdateAt());
             return ResponseEntity.ok(newUser);
         }
     }
-
+    @PutMapping("/state/{id},{state}")
+    public ResponseEntity<UpdateDTO> changeUserState(@PathVariable Long id,
+                                                     @PathVariable Boolean state){
+        UpdateDTO userState = userService.changeStateUser(id,state);
+        return ResponseEntity.ok(userState);
+    }
     @DeleteMapping("{id}")
     public ResponseEntity<DeleteDTO> deleteUser(@PathVariable Long id){
         DeleteDTO deleteUser = userService.deleteUser(id);

@@ -22,6 +22,8 @@ public class UserEntity {
     private String password;
     @Column
     private String email;
+    @Column
+    private Boolean active;
     @Column(name = "last_login")
     private LocalDateTime lastlogin;
     @Column(name = "created_at")

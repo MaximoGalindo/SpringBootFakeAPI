@@ -3,6 +3,7 @@ package SpringBootFakeAPI.services.impl;
 import SpringBootFakeAPI.dtos.request.PostUserDTO;
 import SpringBootFakeAPI.dtos.request.UpdateUserDTO;
 import SpringBootFakeAPI.dtos.response.DeleteDTO;
+import SpringBootFakeAPI.dtos.response.UpdateDTO;
 import SpringBootFakeAPI.entities.UserEntity;
 import SpringBootFakeAPI.models.User;
 import SpringBootFakeAPI.repositories.UserJpaRepository;
@@ -37,6 +38,7 @@ public class UserServiceImpl implements UserService {
             userEntity.setLastlogin(LocalDateTime.now());
             userEntity.setCreateAt(LocalDateTime.now());
             userEntity.setUpdateAt(null);
+            userEntity.setActive(true);
             userJpaRepository.save(userEntity);
             return modelMapper.map(userEntity,User.class);
         }
@@ -61,15 +63,35 @@ public class UserServiceImpl implements UserService {
         }
     }
 
+
+
     @Override
     public DeleteDTO deleteUser(Long id) {
-        UserEntity userEntity = userJpaRepository.getReferenceById(id);
-        if(Objects.isNull(userEntity))
-            return new DeleteDTO(false, "This user ID doesn't exist");
-        else {
+        Optional<UserEntity> userEntityOptional = userJpaRepository.findById(id);
+        if(userEntityOptional.isPresent()){
+            UserEntity userEntity = userEntityOptional.get();
             userJpaRepository.delete(userEntity);
             return new DeleteDTO(true,"The user has been deleted successfully");
         }
+        else
+            return new DeleteDTO(false, "This user ID doesn't exist");
+
+    }
+
+    @Override
+    public UpdateDTO changeStateUser(Long id,Boolean state) {
+        Optional<UserEntity> userEntityOptional = userJpaRepository.findById(id);
+        if(userEntityOptional.isPresent()){
+            UserEntity userEntity = userEntityOptional.get();
+            userEntity.setActive(state);
+            userEntity = userJpaRepository.save(userEntity);
+            return (userEntity != null) ?
+                    new UpdateDTO(true, "The user's status has changed to " + state.toString().toUpperCase()) :
+                    new UpdateDTO(false, "Failed to update user status.");
+        }
+        else
+            return new UpdateDTO(false, "This user ID doesn't exist");
+
     }
 
     @Override
