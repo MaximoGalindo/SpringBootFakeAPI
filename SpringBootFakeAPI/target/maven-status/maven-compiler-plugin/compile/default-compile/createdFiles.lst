@@ -1,3 +1,5 @@
+SpringBootFakeAPI\dtos\response\UpdateDTO.class
+SpringBootFakeAPI\repositories\ProductJpaRepository.class
 SpringBootFakeAPI\utils\validatios\password\ValidPassword.class
 SpringBootFakeAPI\dtos\common\ErrorApi.class
 SpringBootFakeAPI\services\UserService.class
@@ -6,12 +8,15 @@ SpringBootFakeAPI\controllers\UserController.class
 SpringBootFakeAPI\utils\validatios\password\PasswordConstraintValidator.class
 SpringBootFakeAPI\configs\MappersConfig.class
 SpringBootFakeAPI\controllers\ControllerExceptionHandler.class
+SpringBootFakeAPI\dtos\request\PostUserDTO.class
 SpringBootFakeAPI\services\impl\UserServiceImpl.class
+SpringBootFakeAPI\dtos\response\DeleteDTO.class
 SpringBootFakeAPI\entities\UserEntity.class
 SpringBootFakeAPI\dtos\common\ErrorApi$ErrorApiBuilder.class
-SpringBootFakeAPI\dtos\response\PostUserDTO.class
 SpringBootFakeAPI\models\User.class
 SpringBootFakeAPI\repositories\UserJpaRepository.class
 SpringBootFakeAPI\configs\SpringDocConfig.class
 SpringBootFakeAPI\Application.class
+SpringBootFakeAPI\dtos\request\UpdateUserDTO.class
 SpringBootFakeAPI\dtos\response\GetUserDTO.class
+SpringBootFakeAPI\entities\ProductEntity.class

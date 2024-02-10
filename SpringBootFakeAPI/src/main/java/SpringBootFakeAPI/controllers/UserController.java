@@ -1,4 +1,5 @@
 package SpringBootFakeAPI.controllers;
+import SpringBootFakeAPI.dtos.common.ErrorApi;
 import SpringBootFakeAPI.dtos.request.UpdateUserDTO;
 import SpringBootFakeAPI.dtos.response.DeleteDTO;
 import SpringBootFakeAPI.dtos.response.GetUserDTO;
@@ -6,6 +7,11 @@ import SpringBootFakeAPI.dtos.request.PostUserDTO;
 import SpringBootFakeAPI.dtos.response.UpdateDTO;
 import SpringBootFakeAPI.models.User;
 import SpringBootFakeAPI.services.UserService;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.media.Content;
+import io.swagger.v3.oas.annotations.media.Schema;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -15,13 +21,42 @@ import org.springframework.web.server.ResponseStatusException;
 import java.util.Objects;
 
 @RestController("UserController")
-
 @RequestMapping("/users")
 public class UserController {
 
     @Autowired
     private UserService userService;
 
+    @Operation(
+            summary = "Get a user",
+            description = "Return the user that matches both the username or email and password"
+    )
+    @ApiResponses(value = {
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "Successful operation, user obtained",
+                    content = @Content(
+                            mediaType = "application/json",
+                            schema = @Schema(implementation = GetUserDTO.class)
+                    )
+            ),
+            @ApiResponse(
+                    responseCode = "400",
+                    description = "Bad Request",
+                    content = @Content(
+                            mediaType = "application/json",
+                            schema = @Schema(implementation = ErrorApi.class)
+                    )
+            ),
+            @ApiResponse(
+                    responseCode = "500",
+                    description = "Internal server error",
+                    content = @Content(
+                            mediaType = "application/json",
+                            schema = @Schema(implementation = ErrorApi.class)
+                    )
+            )
+    })
     @GetMapping("{emailorusername},{password}")
     public ResponseEntity<GetUserDTO> getUser(@PathVariable String emailorusername,
                                               @PathVariable String password){
@@ -32,7 +67,7 @@ public class UserController {
     }
 
     @GetMapping("{id}")
-    public ResponseEntity<GetUserDTO> getUser(@PathVariable Long id){
+    public ResponseEntity<GetUserDTO> getUserById(@PathVariable Long id){
         User user = userService.getUserById(id);
         GetUserDTO userResponseDTO = new GetUserDTO(user.getId(),user.getUserName(),user.getActive(),user.getLastLoginDate(),user.getUpdateAt());
         return ResponseEntity.ok(userResponseDTO);

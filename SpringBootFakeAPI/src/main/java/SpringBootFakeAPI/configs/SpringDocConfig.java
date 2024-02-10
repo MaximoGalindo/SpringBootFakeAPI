@@ -15,7 +15,6 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class SpringDocConfig {
 
-    @Value("${app.url}") private String url;
     @Value("${app.dev-name}")private String devName;
     @Value("${app.dev-email}")private String devEmail;
 
@@ -35,7 +34,6 @@ public class SpringDocConfig {
                                 .email(devEmail));
 
         Server server = new Server()
-                .url(url)
                 .description(appDescription);
 
         return new OpenAPI()

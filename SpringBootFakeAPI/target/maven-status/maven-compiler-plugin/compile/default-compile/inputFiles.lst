@@ -1,9 +1,12 @@
-C:\Users\Maxi\Documents\Proyectos\SpringBootFakeAPI\SpringBootFakeAPI\src\main\java\SpringBootFakeAPI\dtos\response\PostUserDTO.java
+C:\Users\Maxi\Documents\Proyectos\SpringBootFakeAPI\SpringBootFakeAPI\src\main\java\SpringBootFakeAPI\dtos\request\UpdateUserDTO.java
 C:\Users\Maxi\Documents\Proyectos\SpringBootFakeAPI\SpringBootFakeAPI\src\main\java\SpringBootFakeAPI\configs\SpringDocConfig.java
+C:\Users\Maxi\Documents\Proyectos\SpringBootFakeAPI\SpringBootFakeAPI\src\main\java\SpringBootFakeAPI\repositories\ProductJpaRepository.java
+C:\Users\Maxi\Documents\Proyectos\SpringBootFakeAPI\SpringBootFakeAPI\src\main\java\SpringBootFakeAPI\dtos\response\UpdateDTO.java
 C:\Users\Maxi\Documents\Proyectos\SpringBootFakeAPI\SpringBootFakeAPI\src\main\java\SpringBootFakeAPI\models\User.java
 C:\Users\Maxi\Documents\Proyectos\SpringBootFakeAPI\SpringBootFakeAPI\src\main\java\SpringBootFakeAPI\configs\MappersConfig.java
 C:\Users\Maxi\Documents\Proyectos\SpringBootFakeAPI\SpringBootFakeAPI\src\main\java\SpringBootFakeAPI\services\impl\UserServiceImpl.java
 C:\Users\Maxi\Documents\Proyectos\SpringBootFakeAPI\SpringBootFakeAPI\src\main\java\SpringBootFakeAPI\services\UserService.java
+C:\Users\Maxi\Documents\Proyectos\SpringBootFakeAPI\SpringBootFakeAPI\src\main\java\SpringBootFakeAPI\dtos\request\PostUserDTO.java
 C:\Users\Maxi\Documents\Proyectos\SpringBootFakeAPI\SpringBootFakeAPI\src\main\java\SpringBootFakeAPI\controllers\UserController.java
 C:\Users\Maxi\Documents\Proyectos\SpringBootFakeAPI\SpringBootFakeAPI\src\main\java\SpringBootFakeAPI\dtos\common\ErrorApi.java
 C:\Users\Maxi\Documents\Proyectos\SpringBootFakeAPI\SpringBootFakeAPI\src\main\java\SpringBootFakeAPI\repositories\UserJpaRepository.java
@@ -11,5 +14,7 @@ C:\Users\Maxi\Documents\Proyectos\SpringBootFakeAPI\SpringBootFakeAPI\src\main\j
 C:\Users\Maxi\Documents\Proyectos\SpringBootFakeAPI\SpringBootFakeAPI\src\main\java\SpringBootFakeAPI\controllers\ControllerExceptionHandler.java
 C:\Users\Maxi\Documents\Proyectos\SpringBootFakeAPI\SpringBootFakeAPI\src\main\java\SpringBootFakeAPI\dtos\response\GetUserDTO.java
 C:\Users\Maxi\Documents\Proyectos\SpringBootFakeAPI\SpringBootFakeAPI\src\main\java\SpringBootFakeAPI\Application.java
+C:\Users\Maxi\Documents\Proyectos\SpringBootFakeAPI\SpringBootFakeAPI\src\main\java\SpringBootFakeAPI\entities\ProductEntity.java
 C:\Users\Maxi\Documents\Proyectos\SpringBootFakeAPI\SpringBootFakeAPI\src\main\java\SpringBootFakeAPI\utils\validatios\password\PasswordConstraintValidator.java
+C:\Users\Maxi\Documents\Proyectos\SpringBootFakeAPI\SpringBootFakeAPI\src\main\java\SpringBootFakeAPI\dtos\response\DeleteDTO.java
 C:\Users\Maxi\Documents\Proyectos\SpringBootFakeAPI\SpringBootFakeAPI\src\main\java\SpringBootFakeAPI\utils\validatios\password\ValidPassword.java
