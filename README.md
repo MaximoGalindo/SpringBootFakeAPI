@@ -1,26 +1,27 @@
 # Spring Boot Fake API
 
-## Descripción
+## Description
 
-Este repositorio contiene un proyecto de API desarrollado utilizando Spring Boot y Java 20, destacando mis habilidades y conocimientos en el desarrollo de aplicaciones robustas y eficientes. La aplicación sigue el patrón de diseño MVC para una organización clara y mantenible del código.
+This repository contains a project of an API developed using Spring Boot and Java 20, showcasing my skills and knowledge in building robust and efficient applications. The application follows the MVC design pattern for clear and maintainable code organization. This API allows for full user management, providing capabilities for querying, deleting, updating, and creating users.
 
-## Características Principales
+## Key Features
 
-### Tecnologías Utilizadas
+### Technologies Used
 - Spring Boot
 - Java 20
-- Patrón de diseño MVC
+- MVC Design Pattern
 
-### Persistencia de Datos
-- Se emplea JpaRepository para facilitar las operaciones con la base de datos.
-- La persistencia de datos se gestiona mediante una base de datos H2, asegurando que la aplicación sea portátil y fácil de ejecutar sin la necesidad de configuraciones externas.
+### Data Persistence
+- JpaRepository is employed for streamlined database operations.
+- Data persistence is managed through an H2 database, ensuring portability and easy execution without external configurations.
 
-### Documentación API
-- Swagger se utiliza para documentar y explorar fácilmente los endpoints de la API.
-- [Enlace a Swagger](https://springbootfakeapi.onrender.com/swagger-ui/index.html)
+### API Documentation
+- Swagger is used for documentation and easy exploration of API endpoints.
+- [Link to Swagger](https://springbootfakeapi.onrender.com/swagger-ui/index.html)
 
-## Próximos Pasos
+## Next Steps
 
-Estoy trabajando activamente en la incorporación de un front-end para mejorar la experiencia de documentación y facilitar la comprensión del funcionamiento de la API. ¡Estén atentos para futuras actualizaciones!
+I am actively working on incorporating a front-end to enhance the documentation experience and facilitate understanding of the API's functionality. Stay tuned for future updates!
 
 [Maximo Galindo]
+
