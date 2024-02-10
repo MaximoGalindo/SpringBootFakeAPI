@@ -33,13 +33,10 @@ public class SpringDocConfig {
                                 .name(devName)
                                 .email(devEmail));
 
-        Server server = new Server()
-                .description(appDescription);
 
         return new OpenAPI()
                 .components(new Components())
-                .info(info)
-                .addServersItem(server);
+                .info(info);
     }
 
     @Bean

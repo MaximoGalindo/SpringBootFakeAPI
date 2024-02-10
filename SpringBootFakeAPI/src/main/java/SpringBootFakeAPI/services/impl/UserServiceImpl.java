@@ -117,9 +117,9 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User getUserByUserNameOrEmailAndPassword(String identity, String password) {
+    public User getUserByUserNameOrEmailAndPassword(String email,String userName, String password) {
         Optional<UserEntity> userEntityOptional =
-                userJpaRepository.findByUserNameOrEmailAndPassword(identity,password);
+                userJpaRepository.findByUserNameOrEmailAndPassword(email,userName,password);
         if(userEntityOptional.isPresent()){
             userEntityOptional.get().setLastlogin(LocalDateTime.now());
             return modelMapper.map(userEntityOptional.get(), User.class);

@@ -16,6 +16,6 @@ public interface UserService {
     User getUserByUserNameAndPassword(String userName, String password);
     User getUserByEmailAndPassword(String email, String password);
     User getUserById(Long id);
-    User getUserByUserNameOrEmailAndPassword(String identity, String password);
+    User getUserByUserNameOrEmailAndPassword(String email,String userName, String password);
 
 }

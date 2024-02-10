@@ -12,6 +12,9 @@ import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import jakarta.annotation.Nullable;
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.Email;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -57,10 +60,14 @@ public class UserController {
                     )
             )
     })
-    @GetMapping("{emailorusername},{password}")
-    public ResponseEntity<GetUserDTO> getUser(@PathVariable String emailorusername,
-                                              @PathVariable String password){
-        User user = userService.getUserByUserNameOrEmailAndPassword(emailorusername,password);
+    @GetMapping("")
+    public ResponseEntity<GetUserDTO> getUser(@RequestParam(required = false) @Email String email,
+                                              @RequestParam(required = false) String userName,
+                                              @RequestParam(required = true) String password){
+        if (email == null && userName == null) {
+            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Username and Email can't be null");
+        }
+        User user = userService.getUserByUserNameOrEmailAndPassword(email,userName,password);
         GetUserDTO userResponseDTO =
                 new GetUserDTO(user.getId(),user.getUserName(),user.getActive(),user.getLastLoginDate(),user.getUpdateAt());
         return ResponseEntity.ok(userResponseDTO);
@@ -74,7 +81,8 @@ public class UserController {
     }
 
     @PostMapping()
-    public ResponseEntity<GetUserDTO> saveUser(@RequestBody PostUserDTO postUserDTO){
+    public ResponseEntity<GetUserDTO> saveUser(@RequestBody @Valid PostUserDTO postUserDTO){
+
         User user = userService.saveUser(postUserDTO);
         if(Objects.isNull(user))
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Username or Email already exists");
