@@ -85,12 +85,14 @@ public class UserServiceImpl implements UserService {
             UserEntity userEntity = userEntityOptional.get();
             userEntity.setActive(state);
             userEntity = userJpaRepository.save(userEntity);
-            return (userEntity != null) ?
-                    new UpdateDTO(true, "The user's status has changed to " + state.toString().toUpperCase()) :
-                    new UpdateDTO(false, "Failed to update user status.");
+            if (userEntity != null)
+                return new UpdateDTO(true, "User status updated successfully to " + state.toString().toUpperCase());
+            else
+                throw new EntityNotFoundException("Failed to update user status");
+
         }
         else
-            return new UpdateDTO(false, "This user ID doesn't exist");
+            throw new EntityNotFoundException("This user ID doesn't exist");
 
     }
 
