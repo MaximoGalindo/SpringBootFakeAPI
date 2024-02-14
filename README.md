@@ -33,10 +33,10 @@ If the provided Swagger link is not functional, you can also download the Docker
 
 3. Run the following command to pull the Docker image:
    ```bash
-   docker pull galindomaximo3455/springbootfakeapi:1.0.0
+   docker pull galindomaximo3455/springbootfakeapi:latest
 4. Once the image is downloaded, run the Docker container
    ```bash
-   docker run -p 8080:8080 galindomaximo3455/springbootfakeapi:1.0.0
+   docker run -p 8080:8080 galindomaximo3455/springbootfakeapi:latest
 5. Access the API documentation by opening your browser and navigating to http://localhost:8080/swagger-ui/index.html.
    
 ## Next Steps
