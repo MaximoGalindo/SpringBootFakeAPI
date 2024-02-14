@@ -20,10 +20,6 @@ This repository contains a project of an API developed using Spring Boot and Jav
 - Swagger is used for documentation and easy exploration of API endpoints.
 - [Link to Swagger](https://springbootfakeapi.onrender.com/swagger-ui/index.html)
 
-### API Documentation
-- Swagger is used for documentation and easy exploration of API endpoints.
-- [Link to Swagger](https://springbootfakeapi.onrender.com/swagger-ui/index.html)
-
 If the provided Swagger link is not functional, you can also download the Docker image to run the API locally. Follow the instructions below:
 
 #### Docker Image Download Instructions
