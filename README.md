@@ -8,6 +8,7 @@ This repository contains a project of an API developed using Spring Boot and Jav
 
 ### Technologies Used
 - Spring Boot
+- Docker
 - Java 20
 - MVC Design Pattern
 
